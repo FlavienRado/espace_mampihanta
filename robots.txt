@@ -1,0 +1,17 @@
+# robots.txt pour Espace Mampihanta
+# Ce fichier indique aux robots des moteurs de recherche comment explorer votre site
+
+User-agent: *
+Allow: /
+
+# Désactiver l'exploration de certains dossiers (si vous les créez plus tard)
+# Disallow: /admin/
+# Disallow: /private/
+# Disallow: /tmp/
+
+# Sitemap
+Sitemap: https://www.mampihanta.mg/sitemap.xml
+
+# Délai d'exploration recommandé (en secondes)
+# Utile si votre serveur est lent
+Crawl-delay: 2
