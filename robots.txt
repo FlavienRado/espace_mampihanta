@@ -10,7 +10,7 @@ Allow: /
 # Disallow: /tmp/
 
 # Sitemap
-Sitemap: https://www.mampihanta.mg/sitemap.xml
+Sitemap: https://espace-mampihanta.netlify.app/sitemap.xml
 
 # Délai d'exploration recommandé (en secondes)
 # Utile si votre serveur est lent

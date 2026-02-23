@@ -32,7 +32,7 @@ COMMENT UTILISER :
 CONTACT TECHNIQUE :
 -------------------
 Pour toute modification ou question :
-- Développeur : [Votre nom]
-- Email : [Votre email]
+- Développeur : rakotondranivo radoniaina flavien
+- Email : flavienrado@gmail.com
 
 © 2026 Espace Mampihanta - Tous droits réservés
