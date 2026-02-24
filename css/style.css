@@ -229,6 +229,64 @@ nav ul li a:hover::after {
     z-index: 1;
 }
 
+/* layout pour la section services en deux colonnes */
+.services-split {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* gauche : cards */
+.services-left {
+    flex: 2;
+}
+
+/* droite : tarifs */
+.services-right {
+    flex: 1;
+}
+
+/* styles tarifaires */
+.tarifs {
+    background: #fff;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.tarifs h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.tarif-item {
+    border-top: 1px dashed #e6e6e6;
+    padding: 12px 0;
+}
+
+.tarif-item:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.tarif-item h4 {
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+}
+
+.price {
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 6px;
+}
+
+.muted {
+    color: #666;
+    font-size: 0.9rem;
+}
+
 /* ===== GALERIE ===== */
 .gallery-grid {
     display: grid;
