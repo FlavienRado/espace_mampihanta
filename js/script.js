@@ -191,6 +191,44 @@ document.addEventListener('DOMContentLoaded', function() {
         // Recharger la page si on revient en ligne
         location.reload();
     });
+
+    // ===== FILTRAGE DE LA GALERIE =====
+    const buttons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.gallery-item');
+
+    function setActiveButton(activeBtn) {
+        buttons.forEach(b => b.classList.remove('active'));
+        activeBtn.classList.add('active');
+    }
+
+    function filterGallery(category) {
+        items.forEach(item => {
+            const itemCat = item.dataset.category;
+            if (category === 'all' || itemCat === category) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    }
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.dataset.filter;
+            setActiveButton(btn);
+            filterGallery(category);
+        });
+    });
+
+    // Appliquer le filtre initial au premier chargement : n'afficher que la catégorie active
+    const initialActive = document.querySelector('.filter-btn.active');
+    if (initialActive) {
+        filterGallery(initialActive.dataset.filter);
+    } else if (buttons.length) {
+        // si aucun bouton n'est marqué 'active', activer et filtrer par le premier
+        setActiveButton(buttons[0]);
+        filterGallery(buttons[0].dataset.filter);
+    }
 });
 
 // ===== FONCTIONS UTILITAIRES =====

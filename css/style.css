@@ -290,63 +290,96 @@ nav ul li a:hover::after {
 /* ===== GALERIE ===== */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    align-items: stretch;
 }
 
 .gallery-item {
-    height: 280px;
-    border-radius: 12px;
-    overflow: hidden;
     position: relative;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s;
-}
-
-.gallery-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    border-radius: 6px;
+    background: #f5f5f5;
+    /* Modern browsers */
+    aspect-ratio: 3 / 2;
+    /* Fallback pour navigateurs anciens : ratio via padding-bottom */
+    height: 0;
+    padding-bottom: 66.6667%;
 }
 
 .gallery-item img {
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s;
+    display: block;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.1);
+/* conserver le comportement du filtre */
+.gallery-item.hidden {
+    display: none;
 }
 
-.gallery-item .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    color: #fff;
-    padding: 20px;
-    transform: translateY(100%);
-    transition: transform 0.3s;
+/* Ajustement mobile : ratio un peu plus haut si besoin */
+@media (max-width: 800px) {
+    .gallery-item {
+        aspect-ratio: 4 / 3;
+        padding-bottom: 85%;
+    }
 }
 
-.gallery-item:hover .overlay {
-    transform: translateY(0);
-}
-
-.gallery-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #522d13 100%);
+/* styles pour filtre galerie */
+.gallery-filters {
     display: flex;
-    align-items: center;
+    gap: 8px;
     justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 500;
+    margin: 16px 0;
+    flex-wrap: wrap;
+}
+.filter-btn {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background .15s, color .15s, transform .08s;
+}
+.filter-btn:hover { transform: translateY(-2px); }
+.filter-btn.active {
+    background: #1a73e8;
+    color: #fff;
+    border-color: #1666c1;
+}
+
+/* cacher les éléments filtrés */
+.gallery-item {
+    transition: opacity .25s ease, transform .25s ease;
+}
+.gallery-item.hidden {
+    opacity: 0;
+    transform: scale(0.98);
+    pointer-events: none;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+/* Ajustements possibles pour la grille si besoin */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+/* images responsive */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    object-fit: cover;
 }
 
 /* ===== CONTACT ===== */
