@@ -564,21 +564,43 @@ footer::before {
         width: 100%;
         margin: 10px 0;
     }
+
+    /* Responsive: empiler la section services sur mobile et afficher les tarifs après la liste */
+    .services-split {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .services-left,
+    .services-right {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    /* S'assurer que la liste de services vient avant les tarifs */
+    .services-left { order: 1; }
+    .services-right { order: 2; margin-top: 8px; }
+
+    /* Cards en une colonne pour mobile */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .tarifs {
+        padding: 16px;
+        margin-top: 6px;
+    }
 }
 
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .btn {
-        padding: 12px 25px;
-        font-size: 1rem;
-    }
+@media (max-width: 420px) {
+    header h1 { font-size: 1.8rem; }
+    .section { padding: 40px 12px; }
+    .service-card { padding: 16px; }
 }
 
 /* ===== ANIMATIONS ===== */
